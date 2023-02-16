@@ -2,9 +2,23 @@ const leftSliderBtn = document.querySelector('.header_slider_btn_left');
 const rightSliderBtn = document.querySelector('.header_slider_btn_right');
 const header = document.querySelector('.header');
 let imageSliderCount = 1
+const arraySrc = ['./assets/bg_1.webp', './assets/bg_2.webp', './assets/bg_3.webp']
 const sliderStateDots = document.querySelectorAll('.header_slider_dots_item')
 const headerTitle = document.querySelector('.header_title')
-
+//
+//
+// img1.onload = () => {
+//     console.log('img1.src = \'./assets/bg_1.webp\'\n')
+// }
+function isLoadImagesHeader(arraySrc) {
+    for (let i = 0; i < arraySrc.length; i++) {
+        const img = new Image()
+        img.src = arraySrc[i]
+        const isLoad = img.onload = () => true
+        console.log(isLoad())
+    }
+}
+isLoadImagesHeader(arraySrc)
 function changeStateSlider(imageSliderCount) {
     for(let i = 0; i < sliderStateDots.length; i++) {
         sliderStateDots[i].style.opacity = '0'
